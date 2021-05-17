@@ -1,0 +1,227 @@
+:root {
+  /* Primary */
+  --gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  /* Neutral */
+  --paleBlue: hsl(243, 100%, 93%);
+  --grayishBlue: hsl(229, 7%, 55%);
+  --darkBlue: hsl(228, 56%, 26%);
+  --veryDarkBlue: hsl(229, 57%, 11%);
+}
+
+* {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: url(./images/bg-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.first-box {
+  width: 345px;
+  height: 250px;
+  background-color: var(--darkBlue);
+  border-radius: 10px 120px 10px 10px;
+  margin-bottom: 1.5rem;
+  padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.first-box > img {
+  width: 170px;
+  height: auto;
+}
+.icons img {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 0.5rem;
+  background-color: var(--veryDarkBlue);
+  padding: 1.3rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: transform 200ms ease-in;
+}
+.icons img:hover {
+  transform: scale(1.05);
+}
+.second-box {
+  width: 345px;
+  height: 180px;
+  background-color: var(--darkBlue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2.5rem;
+}
+.second-box p {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+.loading {
+  display: block;
+  width: 285px;
+  height: 25px;
+  background-color: #111d43;
+  border-radius: 2rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.gradient {
+  width: 6%;
+  height: 70%;
+  margin: 0 5px;
+  border-radius: 2rem;
+  background-image: var(--gradient);
+  position: relative;
+  -webkit-animation-name: myAnimate;
+  animation-name: myAnimate;
+  -webkit-animation-duration: 1500ms;
+  animation-duration: 1500ms;
+  -webkit-animation-delay: 500ms;
+  animation-delay: 500ms;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+.gradient::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  transform: translateY(-50%);
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.gigabytes {
+  display: flex;
+  width: 78%;
+  justify-content: space-between;
+}
+span {
+  color: var(--paleBlue);
+}
+.loading .tooltip-text {
+  visibility: hidden;
+  width: 180px;
+  height: 75px;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  color: var(--grayishBlue);
+  font-weight: 600;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 0;
+  top: 320%;
+  left: 50%;
+  transform: translate(-50%);
+  opacity: 0;
+  transition: opacity 1000ms, visibility 1000ms;
+}
+
+.loading:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+em {
+  position: relative;
+  top: 6px;
+  font-size: 3rem;
+  font-weight: 700;
+  color: black;
+}
+
+@media only screen and (min-width: 850px) {
+  body {
+    background: url(./images/bg-desktop.png);
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    background-position: 0vw 50vh;
+    background-color: var(--veryDarkBlue);
+  }
+  .container {
+    width: 95%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .first-box {
+    width: 400px;
+    margin: 0 2rem 0 0;
+  }
+  .second-box {
+    width: 545px;
+    height: 200px;
+  }
+  .second-box p:nth-of-type(1) {
+    align-self: flex-start;
+  }
+  .first-p {
+    margin-left: 3.4rem;
+  }
+  .loading {
+    width: 450px;
+    margin: 0 0.5rem;
+    position: relative;
+  }
+
+  .gradient {
+    width: 4%;
+  }
+  .loading .tooltip-text {
+    width: 200px;
+    height: 85px;
+    top: -510%;
+    right: -16rem;
+    font-size: 120%;
+  }
+  em {
+    font-size: 280%;
+  }
+  .loading .tooltip-text::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-right: 30px solid rgb(255, 255, 255);
+    border-bottom: 30px solid transparent;
+    position: absolute;
+    right: 0;
+    bottom: -25px;
+  }
+}
+/* ------------animation------------ */
+@-webkit-keyframes myAnimate {
+  from {
+    width: 5%;
+  }
+  to {
+    width: 81.5%;
+  }
+}
